@@ -28,9 +28,9 @@ public class ProblemSet3 {
 
         // comment out or uncomment as needed
 
-        ps.sign();          // executes Exercise 1
-        ps.parity();        // executes Exercise 2
-        ps.ordered();       // executes Exercise 3
+        // ps.sign();          // executes Exercise 1
+        // ps.parity();        // executes Exercise 2
+        // ps.ordered();       // executes Exercise 3
         ps.gpa();           // executes Exercise 4
         ps.grade();         // executes Exercise 5
         ps.cards();         // executes Exercise 6
@@ -85,7 +85,24 @@ public class ProblemSet3 {
      */
 
     public void ordered() {
+      System.out.print("\nEnter three integers.\n\nEnter integer: ");
+      int orderedInt1 = in.nextInt();
+      System.out.print("Enter integer: ");
+      int orderedInt2 = in.nextInt();
+      System.out.print("Enter integer: ");
+      int orderedInt3 = in.nextInt();
 
+      if((orderedInt1 < orderedInt2) && (orderedInt2 < orderedInt3)){
+        System.out.print("\nStrictly increasing.\n");
+      } else if((orderedInt1 <= orderedInt2) && (orderedInt2 <= orderedInt3)){
+        System.out.print("\nIncreasing.\n");
+      } else if((orderedInt1 > orderedInt2) && (orderedInt2 > orderedInt3)){
+        System.out.print("\nStrictly decreasing.\n");
+      } else if((orderedInt1 >= orderedInt2) && (orderedInt2 >= orderedInt3)){
+        System.out.print("\nDecreasing.\n");
+      } else{
+        System.out.print("\nUnordered.\n");
+      }
     }
 
     /*
@@ -95,6 +112,49 @@ public class ProblemSet3 {
      */
 
     public void gpa() {
+      System.out.print("\nEnter a letter grade: ");
+      String inputGPA = in.next();
+      inputGPA = inputGPA.toUpperCase();
+      String inputGPAMod;
+      String inputGPALetter = inputGPA.substring(0,1);
+      if(inputGPA.length() == 2){
+        inputGPAMod = inputGPA.substring(1,2);
+      } else{
+        inputGPAMod = "";
+      }
+      String letterArray[];
+      letterArray = new String[]{"A","B","C","D","F"};
+      double numberArray[];
+      numberArray = new double[]{4,3,2,1,0};
+      double letterMod = 0.33;
+
+      double calcGPA = 0.0;
+
+      for(int i = 0; i<5; i++){
+        if(inputGPALetter.equals(letterArray[i])){
+          calcGPA = numberArray[i];
+          if(inputGPA.length() == 2){
+            if(inputGPAMod.equals("+") && (calcGPA != 4.0 && calcGPA != 0.0)){
+              calcGPA = calcGPA + letterMod;
+            } else if(inputGPAMod.equals("-") && (calcGPA != 0.0)){
+              calcGPA = calcGPA - letterMod;
+            }
+            break;
+          }
+        }
+      }
+
+      System.out.print("\nYour GPA is " + calcGPA + ".\n");
+
+      // if(inputGPALetter.equals("A") || inputGPALetter.equals("a")){
+      //   if(inputGPAMod.equals("+") || inputGPAMod.equals("")){
+      //     System.out.print("\nYour GPA is 4.00");
+      //   }else if(inputGPAMod.equals("-")){
+      //     System.out.print("\nYour GPA is 3.66");
+      //   }
+      // }else if()
+
+
 
     }
 
