@@ -31,7 +31,7 @@ public class ProblemSet3 {
         // ps.sign();          // executes Exercise 1
         // ps.parity();        // executes Exercise 2
         // ps.ordered();       // executes Exercise 3
-        ps.gpa();           // executes Exercise 4
+        // ps.gpa();           // executes Exercise 4
         ps.grade();         // executes Exercise 5
         ps.cards();         // executes Exercise 6
         ps.leapYear();      // executes Exercise 7
@@ -145,17 +145,6 @@ public class ProblemSet3 {
       }
 
       System.out.print("\nYour GPA is " + calcGPA + ".\n");
-
-      // if(inputGPALetter.equals("A") || inputGPALetter.equals("a")){
-      //   if(inputGPAMod.equals("+") || inputGPAMod.equals("")){
-      //     System.out.print("\nYour GPA is 4.00");
-      //   }else if(inputGPAMod.equals("-")){
-      //     System.out.print("\nYour GPA is 3.66");
-      //   }
-      // }else if()
-
-
-
     }
 
     /*
@@ -165,8 +154,18 @@ public class ProblemSet3 {
      */
 
     public void grade() {
+      final double GRADESARRAY[] = new double[]{100,89,79,69,59,0};
+      String letterGradesArray[] = new String[]{"A","B","C","D","F"};
 
-    }
+      System.out.print("Enter a grade: " + GRADESARRAY[5]);
+      double inputGrade = in.nextDouble();
+      for(int i = 0; i<5; i++){
+        if((inputGrade <= GRADESARRAY[i]) && (inputGrade > GRADESARRAY[i+1])){
+          System.out.print(letterGradesArray[i]);
+        }
+      }
+      }
+
 
     /*
      * Exercise 6.
