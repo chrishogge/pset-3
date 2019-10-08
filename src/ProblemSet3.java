@@ -33,7 +33,7 @@ public class ProblemSet3 {
         // ps.ordered();       // executes Exercise 3
         // ps.gpa();           // executes Exercise 4
         // ps.grade();         // executes Exercise 5
-        ps.cards();         // executes Exercise 6
+        // ps.cards();         // executes Exercise 6
         ps.leapYear();      // executes Exercise 7
         ps.state();         // executes Exercise 8
         ps.months();        // executes Exercise 9
@@ -226,7 +226,13 @@ public class ProblemSet3 {
      */
 
     public void leapYear() {
-
+      System.out.print("\nEnter a year: ");
+      int inputYear = in.nextInt();
+      if((((inputYear%4)==0) && (((inputYear%100)!=0) || ((inputYear%400)==0)))){
+        System.out.print("\n" + inputYear + " is a leap year.\n");
+      }else{
+        System.out.print("\n" + inputYear + " is not a leap year\n");
+      }
     }
 
     /*
@@ -247,6 +253,32 @@ public class ProblemSet3 {
      */
 
     public void months() {
+      final String MONTHS[] = new String[]{"JAN","FEB","MAR","APR","MAY","JUN",
+      "JUL","AUG","SEP","OCT","NOV","DEC"};
+      final String MONTHLENGTHS[] = new String[]{"31","28 or 29","31","30","31",
+      "30","31","31","30","31","30","31"};
+
+      System.out.print("\nEnter a month: ");
+      String inputMonth = in.next();
+      if(inputMonth.length() > 3){
+      inputMonth = inputMonth.substring(0,4);
+      }
+      inputMonth = inputMonth.toUpperCase();
+
+      int incorrectMonths = 0;
+
+      for(int i = 0; i<12; i++){
+        if(inputMonth.equals(MONTHS[i])){
+          System.out.print(MONTHLENGTHS[i] + " days.\n");
+        }else if(!(inputMonth.equals(MONTHS[i]))){
+          incorrectMonths++;
+        }
+
+        if(incorrectMonths == 12){
+          System.out.print("\nThat's not a valid month.\n");
+        }
+      }
+
 
     }
 
