@@ -32,7 +32,7 @@ public class ProblemSet3 {
         // ps.parity();        // executes Exercise 2
         // ps.ordered();       // executes Exercise 3
         // ps.gpa();           // executes Exercise 4
-        ps.grade();         // executes Exercise 5
+        // ps.grade();         // executes Exercise 5
         ps.cards();         // executes Exercise 6
         ps.leapYear();      // executes Exercise 7
         ps.state();         // executes Exercise 8
@@ -157,11 +157,15 @@ public class ProblemSet3 {
       final double GRADESARRAY[] = new double[]{100,89,79,69,59,0};
       String letterGradesArray[] = new String[]{"A","B","C","D","F"};
 
-      System.out.print("Enter a grade: " + GRADESARRAY[5]);
+      System.out.print("Enter a grade: ");
       double inputGrade = in.nextDouble();
       for(int i = 0; i<5; i++){
         if((inputGrade <= GRADESARRAY[i]) && (inputGrade > GRADESARRAY[i+1])){
           System.out.print(letterGradesArray[i]);
+          break;
+        } else if (inputGrade == 0){
+          System.out.print(letterGradesArray[4]);
+          break;
         }
       }
       }
@@ -174,6 +178,44 @@ public class ProblemSet3 {
      */
 
     public void cards() {
+      final String SUITS[] = new String[]{"Clubs","Diamonds","Hearts","Spades"};
+      final String SUITSYMBOLS[] = new String[]{"C","D","H","S"};
+      final String RANKS[] = new String[]{"Two","Three","Four","Five","Six",
+      "Seven","Eight","Nine","Ten","Jack","Queen","King","Ace"};
+      final String RANKSYMBOLS[] = new String[]{"2","3","4","5","6","7","8","9","T","J","Q","K","A"};
+
+      System.out.print("\nEnter a card: ");
+      String cardInput = in.next();
+      cardInput = cardInput.toUpperCase();
+
+      String cardRank = cardInput.substring(0,1);
+      String cardSuit = cardInput.substring(1,2);
+
+      int ranksIncorrect = 0;
+      int suitsIncorrect = 0;
+
+      for(int i = 0; i<13; i++){
+        if(cardRank.equals(RANKSYMBOLS[i])){
+          for(int j=0; j<4; j++){
+            if(cardSuit.equals(SUITSYMBOLS[j])){
+              System.out.print("\n" + RANKS[i] + " of " + SUITS[j] + ".\n");
+            } else if(!(cardSuit.equals(SUITSYMBOLS[j]))){
+              suitsIncorrect++;
+            }
+            if(suitsIncorrect == 4){
+              System.out.print("\n That's not a valid suit.\n");
+              break;
+            }
+          }
+        }else if(!(cardRank.equals(RANKSYMBOLS[i]))){
+          ranksIncorrect++;
+        }
+        if(ranksIncorrect == 13){
+          System.out.print("\nThat's not a valid rank.\n");
+          break;
+        }
+      }
+
 
     }
 
