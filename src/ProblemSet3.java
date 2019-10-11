@@ -28,16 +28,16 @@ public class ProblemSet3 {
 
         // comment out or uncomment as needed
 
-        // ps.sign();          // executes Exercise 1
-        // ps.parity();        // executes Exercise 2
-        // ps.ordered();       // executes Exercise 3
-        // ps.gpa();           // executes Exercise 4
-        // ps.grade();         // executes Exercise 5
-        // ps.cards();         // executes Exercise 6
-        // ps.leapYear();      // executes Exercise 7
+        ps.sign();          // executes Exercise 1
+        ps.parity();        // executes Exercise 2
+        ps.ordered();       // executes Exercise 3
+        ps.gpa();           // executes Exercise 4
+        ps.grade();         // executes Exercise 5
+        ps.cards();         // executes Exercise 6
+        ps.leapYear();      // executes Exercise 7
         ps.state();         // executes Exercise 8
-        // ps.months();        // executes Exercise 9
-        // ps.salary();        // executes Exercise 10
+        ps.months();        // executes Exercise 9
+        ps.salary();        // executes Exercise 10
 
         in.close();
     }
@@ -157,14 +157,14 @@ public class ProblemSet3 {
       final double GRADESARRAY[] = new double[]{100,89,79,69,59,0};
       String letterGradesArray[] = new String[]{"A","B","C","D","F"};
 
-      System.out.print("Enter a grade: ");
+      System.out.print("\nEnter a grade: ");
       double inputGrade = in.nextDouble();
       for(int i = 0; i<5; i++){
         if((inputGrade <= GRADESARRAY[i]) && (inputGrade > GRADESARRAY[i+1])){
-          System.out.print(letterGradesArray[i]);
+          System.out.print("\nYou received a " + letterGradesArray[i] + ".\n");
           break;
         } else if (inputGrade == 0){
-          System.out.print(letterGradesArray[4]);
+          System.out.print("\nYou received" + letterGradesArray[4] + ".\n");
           break;
         }
       }
@@ -299,7 +299,7 @@ public class ProblemSet3 {
 
       for(int i = 0; i<12; i++){
         if(inputMonth.equals(MONTHS[i])){
-          System.out.print(MONTHLENGTHS[i] + " days.\n");
+          System.out.print("\n" + MONTHLENGTHS[i] + " days.\n");
         }else if(!(inputMonth.equals(MONTHS[i]))){
           incorrectMonths++;
         }
