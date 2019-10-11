@@ -34,9 +34,9 @@ public class ProblemSet3 {
         // ps.gpa();           // executes Exercise 4
         // ps.grade();         // executes Exercise 5
         // ps.cards();         // executes Exercise 6
-        ps.leapYear();      // executes Exercise 7
+        // ps.leapYear();      // executes Exercise 7
         ps.state();         // executes Exercise 8
-        ps.months();        // executes Exercise 9
+        // ps.months();        // executes Exercise 9
         ps.salary();        // executes Exercise 10
 
         in.close();
@@ -261,7 +261,7 @@ public class ProblemSet3 {
       System.out.print("\nEnter a month: ");
       String inputMonth = in.next();
       if(inputMonth.length() > 3){
-      inputMonth = inputMonth.substring(0,4);
+      inputMonth = inputMonth.substring(0,3);
       }
       inputMonth = inputMonth.toUpperCase();
 
@@ -278,8 +278,6 @@ public class ProblemSet3 {
           System.out.print("\nThat's not a valid month.\n");
         }
       }
-
-
     }
 
     /*
@@ -289,6 +287,32 @@ public class ProblemSet3 {
      */
 
     public void salary() {
+      final double OT_THRESH = 40.0;
+      final double PAY_MULTI = 1.5;
+      double moneyMade;
+
+      System.out.print("\nWage: ");
+      double inputWage = in.nextDouble();
+      System.out.print("Hours: ");
+      double inputHours = in.nextDouble();
+
+      double otHours = 0;
+      double otWage = 0;
+
+      if(inputHours > OT_THRESH){
+        otHours = inputHours - OT_THRESH;
+        inputHours = OT_THRESH;
+        otWage = otHours * PAY_MULTI * inputWage;
+      }
+
+      if(inputWage < 0.00){
+        System.out.print("\nYour wage must be greater than or equal to $0.00/hour.");
+      }else if(inputHours < 0.00){
+        System.out.print("\nyour hours must be greater than or equal to 0.0");
+      }else{
+        moneyMade = (inputWage * inputHours) + (otWage);
+        System.out.print("\nYou'll make " + String.format("$%,.2f",moneyMade) + " this week.\n");
+      }
 
     }
 }
