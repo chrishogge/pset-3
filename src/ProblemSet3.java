@@ -37,7 +37,7 @@ public class ProblemSet3 {
         // ps.leapYear();      // executes Exercise 7
         ps.state();         // executes Exercise 8
         // ps.months();        // executes Exercise 9
-        ps.salary();        // executes Exercise 10
+        // ps.salary();        // executes Exercise 10
 
         in.close();
     }
@@ -243,7 +243,37 @@ public class ProblemSet3 {
      */
 
     public void state() {
+      final double[] F_SCALE = new double[]{32,212};
+      final double[] C_SCALE = new double[]{0,100};
 
+      System.out.print("\nEnter a temperature: ");
+      double inputTemp = in.nextDouble();
+      System.out.print("Enter a scale: ");
+      String inputScale = in.next();
+
+      switch(inputScale){
+        case "F":
+            if(inputTemp <= F_SCALE[0]){
+                System.out.print("\nSolid.\n");
+            } else if((inputTemp > F_SCALE[0]) && (inputTemp < F_SCALE[1])){
+                System.out.print("\nLiquid.\n");
+            } else if(inputTemp >= F_SCALE[1]){
+                System.out.print("\nGas.\n");
+            }
+            break;
+        case "C":
+				    if(inputTemp <= C_SCALE[0]){
+						    System.out.print("\nSolid.\n");
+				    } else if((inputTemp > C_SCALE[0]) && (inputTemp < C_SCALE[1])){
+						    System.out.print("\nLiquid.\n");
+				    } else if(inputTemp >= C_SCALE[1]){
+						    System.out.print("\nGas.\n");
+				    }
+				    break;
+				default:
+						System.out.print("\nThat's not a valid scale.\n");
+						break;
+      }
     }
 
     /*
